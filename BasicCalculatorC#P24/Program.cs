@@ -12,6 +12,11 @@ namespace testC_P24
         static void Answer(string Number) {
             Console.WriteLine(("Answer:" + Number + "\n"));
         }
+
+        static int GetInputFromUser(string message)
+        {
+            return 0;
+        }
         
         static void Main(string[] args)
         {
