@@ -12,8 +12,8 @@ namespace testC_P24
     {
 
         static void Answer(string Number,string filename) {
-            Console.WriteLine(("Answer:" + Number + "\n"));
-            File.AppendAllText(filename,("Answer:" + Number + Environment.NewLine));
+            Console.WriteLine("Answer:" + Number + Environment.NewLine);
+            File.AppendAllText(filename,"Answer:" + Number + Environment.NewLine);
         }
 
         static int GetInputFromUser(string message,string filename)
