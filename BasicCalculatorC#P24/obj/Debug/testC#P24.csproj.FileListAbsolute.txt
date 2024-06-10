@@ -6,3 +6,11 @@ C:\Users\zaafi\OneDrive - University of Cape Town\Desktop\New folder\testC#P24\o
 C:\Users\zaafi\OneDrive - University of Cape Town\Desktop\New folder\testC#P24\obj\Debug\testC#P24.csproj.CoreCompileInputs.cache
 C:\Users\zaafi\OneDrive - University of Cape Town\Desktop\New folder\testC#P24\obj\Debug\testC#P24.exe
 C:\Users\zaafi\OneDrive - University of Cape Town\Desktop\New folder\testC#P24\obj\Debug\testC#P24.pdb
+C:\Users\zaafi\Source\Repos\Zaafir-R\BasicCalculator\BasicCalculatorC#P24\bin\Debug\testC#P24.exe.config
+C:\Users\zaafi\Source\Repos\Zaafir-R\BasicCalculator\BasicCalculatorC#P24\bin\Debug\testC#P24.exe
+C:\Users\zaafi\Source\Repos\Zaafir-R\BasicCalculator\BasicCalculatorC#P24\bin\Debug\testC#P24.pdb
+C:\Users\zaafi\Source\Repos\Zaafir-R\BasicCalculator\BasicCalculatorC#P24\obj\Debug\testC#P24.csproj.AssemblyReference.cache
+C:\Users\zaafi\Source\Repos\Zaafir-R\BasicCalculator\BasicCalculatorC#P24\obj\Debug\testC#P24.csproj.SuggestedBindingRedirects.cache
+C:\Users\zaafi\Source\Repos\Zaafir-R\BasicCalculator\BasicCalculatorC#P24\obj\Debug\testC#P24.csproj.CoreCompileInputs.cache
+C:\Users\zaafi\Source\Repos\Zaafir-R\BasicCalculator\BasicCalculatorC#P24\obj\Debug\testC#P24.exe
+C:\Users\zaafi\Source\Repos\Zaafir-R\BasicCalculator\BasicCalculatorC#P24\obj\Debug\testC#P24.pdb
