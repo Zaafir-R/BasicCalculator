@@ -29,7 +29,7 @@ namespace testC_P24
         }
         static void WritetoHistory(int first, int second, string sign, string answer, string filename)
         {
-            File.AppendAllText(filename, DateTime.Now.ToString("dd/MM/yyyy") + first + sign + second + "=" + answer + Environment.NewLine);
+            File.AppendAllText(filename, DateTime.Now.ToString("dd/MM/yyyy") + " "+first + sign + second + "=" + answer + Environment.NewLine);
         }
 
         static void ReadHistory(string filename)
@@ -40,7 +40,7 @@ namespace testC_P24
             if (readText == "Calculator History:\n")
             {
                 Console.WriteLine(readText);
-                Console.WriteLine("History is Empty");// if hisory is view but it is empty
+                Console.WriteLine("History is Empty\n");// if hisory is view but it is empty
             }
             else { Console.WriteLine(readText); }
 
@@ -104,7 +104,7 @@ namespace testC_P24
             {
 
                 string filename = "history.txt";
-                File.Delete(filename);
+                
 
                 if (!File.Exists(filename))
                 {
