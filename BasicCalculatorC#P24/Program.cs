@@ -11,73 +11,126 @@ namespace testC_P24
     internal class Program
     {
 
-        static void Answer(string Number,string filename) {
+        static void Answer(string Number)
+        {
             Console.WriteLine("Answer:" + Number + Environment.NewLine);
-            File.AppendAllText(filename,"Answer:" + Number + Environment.NewLine);
+            //File.AppendAllText(filename,"Answer:" + Number + Environment.NewLine);
         }
 
-        static int GetInputFromUser(string message,string filename)
+        static string GetInputFromUser(string message)
         {
             Console.WriteLine(message);
-            File.AppendAllText(filename, (message+ Environment.NewLine));
+            // File.AppendAllText(filename, (message+ Environment.NewLine));
 
             string number = (Console.ReadLine());
-            File.AppendAllText(filename, number+Environment.NewLine);
+            //File.AppendAllText(filename, number+Environment.NewLine);
 
-            return Convert.ToInt32(number);
+            return number;
         }
-
-        static void ReadHistory(string filename) {
-            Console.WriteLine("Calculator History:");
-            string readText = File.ReadAllText(filename);  // Read the contents of the file
-            Console.WriteLine(readText);
-        }
-        static void Calculator(String filename) {
-            int First = 0;
-
-            int second = 0;
-
-            string operation = "";
-
-            while (operation != "5")
-            {
-                First = GetInputFromUser("Enter First Number:", filename);
-
-                second = GetInputFromUser("Enter Second Number:", filename);
-
-                operation = Convert.ToString(GetInputFromUser("Enter Operation(1 - addition, 2 - Subtraction, 3 - Multiplication , 4- Division,5 - Quite):", filename));
-
-                if (operation == "1") { Answer(Convert.ToString(First + second), filename); }
-
-                else if (operation == "2") { Answer(Convert.ToString(First - second), filename); }
-
-                else if (operation == "3") { Answer(Convert.ToString(First * second), filename); }
-
-                else if (operation == "4") { Answer((First / (double)second).ToString("F"), filename); }
-            }
-        }
-
-       static void Main(string[] args)
+        static void WritetoHistory(int first, int second, string sign, string answer, string filename)
         {
-            string filename = "history.txt";
-            
-            using (File.Create(filename)) { }
-            
+            File.AppendAllText(filename, DateTime.Now.ToString("dd/MM/yyyy") + first + sign + second + "=" + answer + Environment.NewLine);
+        }
 
-            string input = "";
+        static void ReadHistory(string filename)
+        {
 
-            while (input != "3") {
-                Console.WriteLine("What would you like to do?:\n1. Calculate\n2. View History \n3. Quite");
-                input = Console.ReadLine();
+            string readText = File.ReadAllText(filename);  // Read the contents of the file
 
-                if (input == "1") {Calculator(filename);}
-
-                else if (input == "2") { ReadHistory(filename); }
-
-                else {break;}
-
+            if (readText == "Calculator History:\n")
+            {
+                Console.WriteLine(readText);
+                Console.WriteLine("History is Empty");// if hisory is view but it is empty
             }
+            else { Console.WriteLine(readText); }
 
         }
+        static void Calculator(String filename)
+        {
+            string First = null;
+
+            string second = null;
+
+            string operation = "";//ensure loops starts
+
+            while (operation != "x")
+            {
+                First = (GetInputFromUser("Enter First Number(x - Quite):"));
+                if (First == "x") { break; }
+                int firstint = Convert.ToInt32(First);
+
+                second = (GetInputFromUser("Enter Second Number(x - Quite):"));
+                if (second == "x") { break; }
+                int secondint = Convert.ToInt32(second);
+
+                operation = Convert.ToString(GetInputFromUser("Enter Operation(\'+\' - addition, \'-\' - Subtraction, \'*\' - Multiplication , \'/\'- Division,\'x\'- Quite):"));
+
+                if (operation == "+")
+                {
+                    Answer((firstint + secondint).ToString());
+                    WritetoHistory(firstint, secondint, operation, (firstint + secondint).ToString(), filename);
+                }
+
+                else if (operation == "-")
+                {
+                    Answer((firstint - secondint).ToString());
+                    WritetoHistory(firstint, secondint, operation, (firstint - secondint).ToString(), filename);
+                }
+
+                else if (operation == "*")
+                {
+                    Answer((firstint * secondint).ToString());
+                    WritetoHistory(firstint, secondint, operation, (firstint * secondint).ToString(), filename);
+                }
+
+                else if (operation == "/")
+                {
+                    if (secondint == 0)
+                    {
+                        Console.WriteLine("Cannot divide by zero.");
+                    }
+                    else
+                    {
+                        string result = (firstint / (double)secondint).ToString("F");
+                        Answer(result);
+                        WritetoHistory(firstint, secondint, operation, result, filename); ;
+                    }
+
+
+                }
+            }
+        }
+            static void Main(string[] args)
+            {
+
+                string filename = "history.txt";
+                File.Delete(filename);
+
+                if (!File.Exists(filename))
+                {
+                    using (File.Create(filename)) { }
+                    File.WriteAllText(filename, "Calculator History:\n");
+                }
+
+                
+
+                string input = "";
+
+                while (input != "3")
+                {
+                    Console.WriteLine("What would you like to do?:\n1. Calculate\n2. View History \n3. Quite");
+                    input = Console.ReadLine();
+
+                    if (input == "1") { Calculator(filename); }
+
+                    else if (input == "2") { ReadHistory(filename); }
+
+                    else { break; }
+
+                }
+
+            }
+        
     }
 }
+
