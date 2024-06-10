@@ -10,24 +10,23 @@ namespace testC_P24
     {
 
         static void Answer(string Number) {
-            Console.WriteLine(("Answer:" + Number + "\n"));
+            Console.WriteLine(("\nAnswer:" + Number + "\n"));
         }
 
         static int GetInputFromUser(string message)
         {
-            return 0;
+            Console.WriteLine(message);
+            return Convert.ToInt32(Console.ReadLine());
         }
         
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter First Number:");
-            int First = Convert.ToInt32(Console.ReadLine());
+            
+            int First = GetInputFromUser("Enter First Number:");
 
-            Console.WriteLine("Enter Second Number:");
-            int second = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Enter Operation(1 - addition, 2 - Subtraction, 3 - Multiplication , 4- Division,5 - Quite):");
-            string operation = Console.ReadLine();
+            int second = GetInputFromUser("Enter Second Number:");
+            
+            string operation = Convert.ToString(GetInputFromUser("Enter Operation(1 - addition, 2 - Subtraction, 3 - Multiplication , 4- Division,5 - Quite):"));
 
 
             while (operation != "5")
@@ -39,16 +38,14 @@ namespace testC_P24
                 else if (operation == "3") { Answer(Convert.ToString(First * second)); }
 
                 else if (operation == "4") { Answer(((double)First / (double)second).ToString("F")); }
+
                 else if (operation == "5") { break; }
 
-                Console.WriteLine("Enter First Number:");
-                First = Convert.ToInt32(Console.ReadLine());
+                First = GetInputFromUser("Enter First Number:");
 
-                Console.WriteLine("Enter First Number:");
-                second = Convert.ToInt32(Console.ReadLine());
+                second = GetInputFromUser("Enter Second Number:");
 
-                Console.WriteLine("Enter Operation(1 - addition, 2 - Subtraction, 3 - Multiplication , 4- Division,5 - Quite):");
-                operation = Console.ReadLine();
+                operation = Convert.ToString(GetInputFromUser("Enter Operation(1 - addition, 2 - Subtraction, 3 - Multiplication , 4- Division,5 - Quite):"));
             }
 
 
